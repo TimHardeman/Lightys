@@ -7,7 +7,7 @@
 
 class ws2812b {
 private:
-	hwlib::target::pins pin;
+	hwlib::pin_out & ledstrip;
 	std::array<std::array<int, 3>, 100> leds = {0};
 
 public:
@@ -15,7 +15,7 @@ public:
 	/// The constructor.
 	/// \details
 	/// This constructor requires the arduino pin the ledstrip is connected.
-	ws2812b(hwlib::target::pins pin);
+	ws2812b(hwlib::pin_out & ledstrip);
 	
 	/// \brief
 	/// adds a led to the ledstrip

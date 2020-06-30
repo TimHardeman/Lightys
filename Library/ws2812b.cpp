@@ -1,7 +1,7 @@
 #include "ws2812b.hpp"
 
-ws2812b::ws2812b(hwlib::target::pins pin):
-	pin( pin )
+ws2812b::ws2812b(hwlib::pin_out & ledstrip):
+	ledstrip( ledstrip )
 	{}
 
 void ws2812b::addLed(int red, int blue, int green, int index, int amount){
@@ -16,7 +16,7 @@ void ws2812b::addLed(int red, int blue, int green, int index, int amount){
 
 void ws2812b::showLeds(){
 		
-        auto ledstrip = hwlib::target::pin_out( pin );
+     //   auto ledstrip = hwlib::target::pin_out( pin );
 
         hwlib::wait_us(10);
 		
