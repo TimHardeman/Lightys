@@ -4,7 +4,7 @@ ws2812b::ws2812b(hwlib::pin_out & ledstrip):
 	ledstrip( ledstrip )
 	{}
 
-void ws2812b::addLed(int red, int blue, int green, int index, int amount){
+void ws2812b::addLed(u_int8_t red, u_int8_t blue, u_int8_t green, int index, int amount){
 	
 	for(int i = index; i < (index + amount); i++){
 		leds[i][0] = {green};
@@ -16,14 +16,16 @@ void ws2812b::addLed(int red, int blue, int green, int index, int amount){
 
 void ws2812b::showLeds(){
 		
-     //   auto ledstrip = hwlib::target::pin_out( pin );
-
         hwlib::wait_us(10);
 		
         for(int i = 0; i < 100; i++){
+			
 			for(int j = 0; j < 3; j++){
+				
+				hwlib::cout << leds[i][j] << '\n';
+								
 				for(int k = 7; k >= 0;k--){
-
+					
 					ledstrip.write(1);
 
 					if(leds[i][j] & (0x01 << k)){
@@ -41,7 +43,7 @@ void ws2812b::showLeds(){
 				}
 			}
 		}
-		
+		hwlib::cout << "test5\n";
 }
 
 void ws2812b::blink(int indexStart, int indexEnd, int interval, int iterations){

@@ -8,7 +8,7 @@
 class ws2812b {
 private:
 	hwlib::pin_out & ledstrip;
-	std::array<std::array<int, 3>, 100> leds = {0};
+	std::array<std::array<u_int8_t, 3>, 100> leds = {0};
 
 public:
 	/// \brief
@@ -21,7 +21,7 @@ public:
 	/// adds a led to the ledstrip
 	/// \details
 	/// 
-	void addLed(int red, int blue, int green, int index, int amount = 1);
+	void addLed(u_int8_t red, u_int8_t blue, u_int8_t green, int index, int amount = 1);
 		
 	void showLeds();
 	
