@@ -5,12 +5,13 @@ ws2812b::ws2812b(hwlib::target::pins pin):
 	{}
 
 void ws2812b::addLed(int red, int blue, int green, int index, int amount){
-
+	
 	for(int i = index; i < (index + amount); i++){
 		leds[i][0] = {green};
 		leds[i][1] = {red};
 		leds[i][2] = {blue};
 	}
+	
 }
 
 void ws2812b::showLeds(){
@@ -19,8 +20,8 @@ void ws2812b::showLeds(){
 
         hwlib::wait_us(10);
 		
-        for(int i = 0; i < 5000; i++){
-			for(int j = 0; i < 3; j++){
+        for(int i = 0; i < 50; i++){
+			for(int j = 0; j < 3; j++){
 				for(int k = 7; k >= 0;k--){
 
 					ledstrip.write(1);
@@ -40,14 +41,37 @@ void ws2812b::showLeds(){
 				}
 			}
 		}
+		
 }
 
-void ws2812b::cycleRight(int indexStart, int indexEnd, int MSinterval, int iterations){
+void ws2812b::blink(int indexStart, int indexEnd, int interval, int iterations){
 	std::array<std::array<int, 3>, 5000> ledsCopy = leds;
 	
 	for(int i = 0; i < iterations; i++){
 		for(int j = indexStart; j <= indexEnd; j++){
-			hwlib::wait_ms( MSinterval );
+			
+			hwlib::wait_ms( interval );
+			
+			leds[j][0] = 0;
+			leds[j][0] = 0;
+			leds[j][0] = 0;
+			showLeds();
+			
+			hwlib::wait_ms( interval );
+		}
+	}
+}
+
+void ws2812b::cycleRight(int indexStart, int indexEnd, int interval, int iterations){
+	
+	hwlib::cout << '1' << '\n';
+	showLeds();
+	
+	std::array<std::array<int, 3>, 5000> ledsCopy = leds;
+	
+	for(int i = 0; i < iterations; i++){
+		for(int j = indexStart; j <= indexEnd; j++){
+			hwlib::wait_ms( interval );
 			
 			hwlib::cout << j << '\n';
 			

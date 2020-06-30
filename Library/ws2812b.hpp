@@ -25,6 +25,8 @@ public:
 		
 	void showLeds();
 	
+	void blink(int indexStart, int indexEnd, int interval, int iterations);
+	
 	void cycleRight(int indexStart, int indexEnd, int interval, int iterations);
 		
 		
