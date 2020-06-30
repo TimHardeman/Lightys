@@ -27,16 +27,16 @@ void ws2812b::showLeds(){
 					ledstrip.write(1);
 
 					if(leds[i][j] & (0x01 << k)){
-							for( volatile int i = 0; i < 3; i++){};
+							for( volatile int l = 0; l < 3; l++){};
 					}
 					else{
-							for( volatile int i = 0; i < 1; i++){};
+							for( volatile int m = 0; m < 1; m++){};
 					}
 
 
 					ledstrip.write(0);
 
-					for( volatile int i = 0; i < 1; i++){};
+					for( volatile int n = 0; n < 1; n++){};
 			
 				}
 			}
