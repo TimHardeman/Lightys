@@ -20,7 +20,7 @@ void ws2812b::showLeds(){
 
         hwlib::wait_us(10);
 		
-        for(int i = 0; i < 50; i++){
+        for(int i = 0; i < 100; i++){
 			for(int j = 0; j < 3; j++){
 				for(int k = 7; k >= 0;k--){
 
@@ -45,7 +45,7 @@ void ws2812b::showLeds(){
 }
 
 void ws2812b::blink(int indexStart, int indexEnd, int interval, int iterations){
-	std::array<std::array<int, 3>, 5000> ledsCopy = leds;
+	//std::array<std::array<int, 3>, 5000> ledsCopy = leds;
 	
 	for(int i = 0; i < iterations; i++){
 		for(int j = indexStart; j <= indexEnd; j++){
@@ -67,7 +67,7 @@ void ws2812b::cycleRight(int indexStart, int indexEnd, int interval, int iterati
 	hwlib::cout << '1' << '\n';
 	showLeds();
 	
-	std::array<std::array<int, 3>, 5000> ledsCopy = leds;
+	//std::array<std::array<int, 3>, 5000> ledsCopy = leds;
 	
 	for(int i = 0; i < iterations; i++){
 		for(int j = indexStart; j <= indexEnd; j++){
@@ -92,6 +92,6 @@ void ws2812b::cycleRight(int indexStart, int indexEnd, int interval, int iterati
 		}
 	}
 	
-	leds = ledsCopy;
+	//leds = ledsCopy;
 	
 }

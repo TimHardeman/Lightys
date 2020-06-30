@@ -8,7 +8,7 @@
 class ws2812b {
 private:
 	hwlib::target::pins pin;
-	std::array<std::array<int, 3>, 5000> leds = {0};
+	std::array<std::array<int, 3>, 100> leds = {0};
 
 public:
 	/// \brief
