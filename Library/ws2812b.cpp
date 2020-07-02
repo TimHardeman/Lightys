@@ -40,22 +40,23 @@ void ws2812b::showLeds(){
 }
 
 void ws2812b::blink(int indexStart, int indexEnd, int interval, int iterations){
+	
 	std::array<std::array<uint8_t, 3>, 100> ledsCopy = leds;
 	
 	for(int i = 0; i < iterations; i++){
+		
+		hwlib::wait_ms( interval );
+		
 		for(int j = indexStart; j <= indexEnd; j++){
-			
-			hwlib::wait_ms( interval );
-			
 			leds[j][0] = 0;
 			leds[j][1] = 0;
 			leds[j][2] = 0;
 		}
 		showLeds();
+		
+		hwlib::wait_ms( interval );
+		
 		for(int k = indexStart; k <= indexEnd; k++){
-			
-			hwlib::wait_ms( interval );
-
 			leds[k][0] = ledsCopy[k][0];
 			leds[k][1] = ledsCopy[k][1];
 			leds[k][2] = ledsCopy[k][2];
@@ -69,9 +70,11 @@ void ws2812b::cycleRight(int indexStart, int indexEnd, int interval, int iterati
 	std::array<std::array<uint8_t, 3>, 100> ledsCopy = leds;
 	
 	for(int i = 0; i < iterations; i++){
+		
+		hwlib::wait_ms( interval );
+		
 		for(int j = indexStart; j <= indexEnd; j++){
-			hwlib::wait_ms( interval );
-			
+
 			if(j == indexStart){
 				leds[indexStart][0] = ledsCopy[indexEnd][0];
 				leds[indexStart][1] = ledsCopy[indexEnd][1];
@@ -93,9 +96,11 @@ void ws2812b::cycleLeft(int indexStart, int indexEnd, int interval, int iteratio
 	std::array<std::array<uint8_t, 3>, 100> ledsCopy = leds;
 	
 	for(int i = 0; i < iterations; i++){
+		
+		hwlib::wait_ms( interval );
+		
 		for(int j = indexEnd; j >= indexStart; j--){
-			hwlib::wait_ms( interval );
-			
+
 			if(j == indexEnd){
 				leds[indexEnd][0] = ledsCopy[indexStart][0];
 				leds[indexEnd][1] = ledsCopy[indexStart][1];
