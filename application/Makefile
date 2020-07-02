@@ -15,9 +15,9 @@ SOURCES := ws2812b.cpp
 HEADERS := ws2812b.hpp
 
 # other places to look for files for this project
-SEARCH  := ./library 
+SEARCH  := ../library 
 
 # set RELATIVE to the next higher directory 
 # and defer to the appropriate Makefile.* there
-RELATIVE := ..
+RELATIVE := /home/tim/v1oopc-examples/
 include $(RELATIVE)/Makefile.due

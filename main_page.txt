@@ -1,0 +1,31 @@
+/*! \mainpage Lightys
+
+ *  
+
+ *  \section Introduction
+
+ *  Lightys is a C++ library for the ws2812b led strip, created to be used on the Arduino due.
+
+ *  
+
+ *  \section Hardware
+
+ *  Lightys has been created and tested on an Arduino due. It might work on other devices but this has not been tested.
+
+ *    
+
+ *  \section Limitations
+
+ *  Since the Arduino due has no heap the limit on the amount of leds cannot be dynamic and has to be a static limit.
+
+ * The current limit is 1000 leds. This should be enough for anyone using this library, but can be changed if necessary.
+
+ *  
+
+ *  \section Usage
+
+ *  Include Lightys.hpp in your program and add both Lightys.hpp and Lightys.cpp to your Makefile.
+
+ * The library is dependant on hwlib for several functions, so make sure you have that installed that as well.
+
+ */ 
