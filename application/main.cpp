@@ -17,10 +17,15 @@ int main(){
 	
 	for(;;){
 		ledstrip.cycleLeft(0, 6, 350, 7);
-		ledstrip.cycleRight(0, 6, 350, 7);
-		ledstrip.kittLeft(0, 6, 50, 7);
-		ledstrip.kittRight(0, 6, 50, 7);
-		ledstrip.blink(0, 7, 350, 7);
-		
+                ledstrip.cycleRight(0, 6, 350, 7);
+                ledstrip.cycleLeft(0, 2, 350, 3);
+                ledstrip.cycleRight(4, 6, 350, 3);
+                ledstrip.kittLeft(0, 2, 100, 3);
+                ledstrip.kittRight(4, 6, 100, 3);
+                ledstrip.kittLeft(0, 6, 100, 7);
+                ledstrip.kittRight(0, 6, 100, 7);
+                ledstrip.blink(0, 2, 350, 3);
+                ledstrip.blink(4, 6, 350, 3);
+                ledstrip.blink(0, 7, 350, 7);		
 	}
 }
