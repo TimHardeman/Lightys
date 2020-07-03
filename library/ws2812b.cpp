@@ -143,6 +143,9 @@ void ws2812b::kittRight(int indexStart, int indexEnd, int interval, int iteratio
 		}
 	}
 	leds = ledsCopy;
+	
+	hwlib::wait_us( 10 );
+	
 	showLeds();
 }
 
@@ -172,5 +175,8 @@ void ws2812b::kittLeft(int indexStart, int indexEnd, int interval, int iteration
 		}
 	}
 	leds = ledsCopy;
+	
+	hwlib::wait_us( 10 );
+	
 	showLeds();
 }
